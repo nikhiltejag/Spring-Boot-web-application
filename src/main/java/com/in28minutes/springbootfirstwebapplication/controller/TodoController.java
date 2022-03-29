@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TodoController {
 
     @Autowired
-    static TodoService todoService;
+    TodoService todoService;
 
     @RequestMapping("/todos-list")
-    public static String listAllTodos(ModelMap model) {
+    public String listAllTodos(ModelMap model) {
         model.put("todos", todoService.retrieveTodos("in28Minutes"));
         return "todos-list";
     }
