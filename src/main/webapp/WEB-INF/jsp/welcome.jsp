@@ -5,6 +5,6 @@
 
   <body>
     Welcome ${name}!
-    <a href="/todos-list">Click here</a>, to get all your todos !!
+    <a href="/list-todos">Click here</a>, to get all your todos !!
   </body>
 </html>
