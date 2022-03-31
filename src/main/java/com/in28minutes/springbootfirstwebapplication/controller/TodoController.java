@@ -23,7 +23,7 @@ public class TodoController {
     public String listAllTodos(ModelMap model) {
         String name = (String) model.get("name");
         model.put("todos", todoService.retrieveTodos(name));
-        return "todos-list";
+        return "list-todos";
     }
 
     @RequestMapping(value = "add-todo", method = RequestMethod.GET)
@@ -35,6 +35,12 @@ public class TodoController {
     public String addTodo(@RequestParam String desc, ModelMap model) {
 
         todoService.addTodo((String) model.get("name"), desc, new Date(), false);
+        return "redirect:/list-todos";
+    }
+
+    @RequestMapping(value = "delete-todo", method = RequestMethod.GET)
+    public String deleteTodo(@RequestParam int id) {
+        todoService.deleteTodo(id);
         return "redirect:/list-todos";
     }
 }
