@@ -1,6 +1,7 @@
 package com.in28minutes.springbootfirstwebapplication.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -42,6 +43,28 @@ public class TodoController {
             return "add-todo";
         }
         todoService.addTodo((String) model.get("name"), todo.getDesc(), new Date(), false);
+        return "redirect:/list-todos";
+    }
+
+    @RequestMapping(value = "/update-todo", method = RequestMethod.GET)
+    public String showUpdateTodo(@RequestParam int id, ModelMap model) {
+        Todo todo = todoService.retrieveTodo(id);
+        model.addAttribute("todo", todo);
+        return "add-todo";
+    }
+
+    @RequestMapping(value = "/update-todo", method = RequestMethod.POST)
+    public String updateTodo(@Valid Todo todo, BindingResult result, ModelMap model) {
+        if (result.hasErrors())
+            return "add-todo";
+        todo.setUser((String) model.get("name"));
+
+        List<Todo> todos = todoService.retrieveTodos((String) model.get("name"));
+
+        for (Todo each : todos)
+            System.out.println(todo + "\t" + each + "\n" + each.equals(todo));
+
+        todoService.updateTodo(todo);
         return "redirect:/list-todos";
     }
 

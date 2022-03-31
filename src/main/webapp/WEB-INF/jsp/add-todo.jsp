@@ -13,6 +13,7 @@
     <div class="container">
       Add Todo page for ${name} <br />
       <form:form method="post" modelAttribute="todo">
+        <!-- <form:hidden path="id" /> -->
         <fieldset class="form-group mb-3 mt-3">
           <form:label path="desc"> Description </form:label>
           <form:input
