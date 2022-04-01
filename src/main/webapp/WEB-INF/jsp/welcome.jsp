@@ -1,9 +1,5 @@
-<html>
-  <head>
-    <title>My First web page</title>
-  </head>
+<%@ include file="common/header.jspf" %>
 
-  <body>
     Welcome ${name}!
     <a href="/list-todos">Click here</a>, to get all your todos !!
   </body>
