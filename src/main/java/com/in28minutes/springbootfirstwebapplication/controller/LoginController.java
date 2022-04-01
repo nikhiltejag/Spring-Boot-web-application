@@ -25,7 +25,6 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String sendWelcome(@RequestParam String name, @RequestParam String password, ModelMap model) {
-        System.out.println(name);
         model.put("name", name);
         boolean isValidUser = loginService.validateUser(name, password);
         if (!isValidUser) {

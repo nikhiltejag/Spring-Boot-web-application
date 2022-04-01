@@ -26,10 +26,26 @@
           <form:errors path="desc" cssClass="text-warning" />
         </fieldset>
 
+        <fieldset class="form-group mb-3 mt-3">
+          <form:label path="desc"> Target Date </form:label>
+          <form:input
+            path="targetDate"
+            type="text"
+            name="targetDate"
+            class="form-control"
+            required="required"
+          />
+          <form:errors path="targetDate" cssClass="text-warning" />
+        </fieldset>
+
         <button type="submit" class="btn btn-success">Add</button>
       </form:form>
     </div>
     <script src="webjars/jquery/3.6.0/jquery.min.js"></script>
     <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+    <script src="webjars/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+    <script>
+      $("#targetDate").datepicker({ format: "dd/mm/yyyy" });
+    </script>
   </body>
 </html>
